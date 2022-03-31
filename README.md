@@ -1,3 +1,7 @@
+#deployed address : https://ipfs.io/ipfs/QmU38HU4Hwbjp2aq23uG5APkFL9JoMQwyyoiNhQfJM1N8m/
+contract address: https://rinkeby.etherscan.io/address/0x827eF533a154398ad03f4080901c77f9FBC8054d
+
+
 # 🏗 scaffold-eth | 🏰 BuidlGuidl
 
 ## 🚩 Challenge 2: 🏵 Token Vendor 🤖
