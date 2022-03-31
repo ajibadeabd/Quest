@@ -24,7 +24,7 @@ contract Staker {
     emit Stake(msg.sender, msg.value);
   }
 
-  uint256 public deadline = block.timestamp + 120 seconds;
+  uint256 public deadline = block.timestamp + 72 hours;
   // After some `deadline` allow anyone to call an `execute()` function
   //  It should either call `exampleExternalContract.complete{value: address(this).balance}()` to send all the value
   
