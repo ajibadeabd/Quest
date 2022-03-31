@@ -18,7 +18,6 @@ contract Staker {
   event Stake(address indexed sender, uint256 stakedAmount);
 
   uint256 public constant threshold = 1 ether;
-  
 
   function stake() public payable {
     balances[msg.sender] += msg.value;
