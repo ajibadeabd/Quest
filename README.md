@@ -1,4 +1,5 @@
-# Contract address: https://rinkeby.etherscan.io/address/0x184f9C9E13a2cc9b8C7AC1523Ce779DD3895A89c
+# deploy link : https://ipfs.io/ipfs/QmeyZCrEGK8Ku3rZAVQZk7FJVxQSZCj4QKatqYzKTAfTsm
+# contact address : https://rinkeby.etherscan.io/address/0x69e992dC534696D1aD6CA80A9f604fb6A3287Cc6
 
 # 🏗 scaffold-eth | 🏰 BuidlGuidl
 
