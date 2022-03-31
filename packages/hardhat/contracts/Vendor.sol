@@ -7,6 +7,8 @@ import "./YourToken.sol";
 contract Vendor is Ownable {
 
   event BuyTokens(address buyer, uint256 amountOfETH, uint256 amountOfTokens);
+  event SellTokens(address seller, uint256 amountOfETH, uint256 amountOfTokens);
+
 
   YourToken public yourToken;
 
@@ -34,6 +36,27 @@ contract Vendor is Ownable {
       (bool sent,) = msg.sender.call{value : ownerBalance}("");
       require(sent, "Failed to send");
     }
+
+
   // ToDo: create a sellTokens() function:
+
+  function sellTokens(uint256 amount) public {
+    require(amount > 0, "Amount has to be > 0");
+    
+    uint256 userBalance = yourToken.balanceOf(msg.sender);
+    require(userBalance >= amount, "Insufficient Tokens");
+
+    uint256 ownerBalance = address(this).balance;
+    uint256 ethToTrsf = amount/tokensPerEth;
+    require(ownerBalance >= ethToTrsf, "Owner doesn't have enough tokens balance");
+
+
+    yourToken.transferFrom(msg.sender, address(this), amount);
+
+    (bool sent,) = msg.sender.call{value : ethToTrsf}("");
+    require(sent, "Failed to send eth to the user");
+
+    emit SellTokens(msg.sender, ethToTrsf, amount);
+  }
 
 }
