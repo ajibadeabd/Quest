@@ -1,3 +1,6 @@
+# deploy link : https://habitual-calculator.surge.sh/
+
+
 # 🏗 scaffold-eth | 🏰 BuidlGuidl
 
 ## 🚩 Challenge 0: 🎟 Simple NFT Example 🤓
