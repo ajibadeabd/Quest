@@ -7,9 +7,11 @@ import "./ExampleExternalContract.sol";
 contract Staker {
 
   ExampleExternalContract public exampleExternalContract;
+  address public owner;
 
   constructor(address exampleExternalContractAddress)  {
       exampleExternalContract = ExampleExternalContract(exampleExternalContractAddress);
+      owner=msg.sender
   }
 
   // Collect funds in a payable `stake()` function and track individual `balances` with a mapping:
@@ -29,11 +31,13 @@ contract Staker {
   //  It should either call `exampleExternalContract.complete{value: address(this).balance}()` to send all the value
   
   function execute() public {
+  
+    require(owner == msg.sender, "UNAUTHORIZED");
     require(timeLeft() == 0, "Deadline hasn't been reached, time still dey");
 
     uint256 totalBalance = address(this).balance;
 
-    require(totalBalance >= threshold, "Threshold hasn't been hit yet");
+    require(   threshold <  totalBalance , "Threshold hasn't been hit yet");
 
     (bool sent,) = address(exampleExternalContract).call{value: totalBalance}(abi.encodeWithSignature("complete()"));
     require(sent, "exampleExternalContract failed");
